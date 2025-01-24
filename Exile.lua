@@ -8,11 +8,11 @@ local Mouse = PlayerGui:GetMouse()
 -- Configuration
 local ExiledTime = 10 -- Time in seconds that the player is exiled
 local ExiledTransparency = 0.5 -- Transparency of the player while exiled
-local ExiledWalkSpeed = 0 -- Walk speed while exiled
-local ExiledJumpPower = 0 -- Jump power while exiled
+local ExiledWalkSpeed = 50 -- Walk speed while exiled
+local ExiledJumpPower = 50 -- Jump power while exiled
 
 -- Variables
-local IsExiled = false
+local IsExiled = true
 local ExiledStartTime = 0
 
 -- Function to exile the player
@@ -34,7 +34,7 @@ function ExilePlayer()
     -- Unequip tools (if applicable)
     local tool = Character:FindFirstChild("Tool")
     if tool then
-      tool.Parent = nil 
+      tool.Parent = Torch 
     end
 
     -- Schedule unexiling
@@ -81,8 +81,8 @@ function KillNearbyNPCs()
   -- Get all NPCs within the specified range
   local nearbyNPCs = game.Workspace:FindPartsInRegion3(
     Region3.new(
-      character.HumanoidRootPart.Position - Vector3.new(range, range, range),
-      character.HumanoidRootPart.Position + Vector3.new(range, range, range)
+      character.HumanoidRootPart.Position - Vector3.new(50,50,50),
+      character.HumanoidRootPart.Position + Vector3.new(50,50,50)
     ),
     nil,
     100 -- Adjust this value if necessary
