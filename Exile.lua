@@ -7,15 +7,15 @@ remoteEvent.OnServerEvent:Connect(function(player, position)
         if humanoidRootPart then
             local distance = (humanoidRootPart.Position - position).magnitude
             
-            if distance <= 5 then -- Check if within attack range
+            if distance <= 100 then -- Check if within attack range
                 -- Find an enemy within range (for demonstration, use a specific NPC)
                 local enemy = workspace:FindFirstChild("EnemyNPC") -- Make sure you have an NPC named "EnemyNPC"
                 
-                if enemy and (enemy.Position - humanoidRootPart.Position).magnitude <= 5 then
+                if enemy and (enemy.Position - humanoidRootPart.Position).magnitude <= 100 then
                     -- Deal damage to the enemy
                     local enemyHealth = enemy:FindFirstChild("Humanoid")
                     if enemyHealth then
-                        enemyHealth:TakeDamage(10) -- Change the number to adjust damage
+                        enemyHealth:TakeDamage(100) -- Change the number to adjust damage
                     end
                 end
             end
